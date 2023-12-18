@@ -11,6 +11,8 @@
 
 [sub_resource type="Environment" id="Environment_ynekd"]
 background_mode = 2
+ambient_light_source = 3
+ambient_light_color = Color(0.952941, 0.952941, 0.984314, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cu0pq"]
 
@@ -36,13 +38,13 @@ tracker = &"left_hand"
 
 [node name="MovementDirect" parent="XROrigin3D/Left_hand" instance=ExtResource("3_ojacg")]
 
-[node name="MovementTurn" parent="XROrigin3D/Left_hand" instance=ExtResource("4_2y6jw")]
-
 [node name="Right_hand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
 
 [node name="RightHand" parent="XROrigin3D/Right_hand" instance=ExtResource("3_4m8hr")]
+
+[node name="MovementTurn" parent="XROrigin3D/Right_hand" instance=ExtResource("4_2y6jw")]
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("4_op00d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11542, 0)

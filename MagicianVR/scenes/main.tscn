@@ -1,15 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://1t3ox1xanoms"]
+[gd_scene load_steps=11 format=3 uid="uid://1t3ox1xanoms"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_tqvvg"]
-[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_twmtr"]
-[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_4m8hr"]
-[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_ojacg"]
-[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_2y6jw"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_op00d"]
-[ext_resource type="Texture2D" uid="uid://dm0p6iytpqhnb" path="res://imported images/magical sky.exr" id="7_ehgxg"]
-[ext_resource type="AudioStream" uid="uid://csl825u3daj3x" path="res://music/mysterious-magical-meditative-space-118549.wav" id="8_qyeuv"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqirk"]
+[ext_resource type="Script" path="res://main.gd" id="1_cy27a"]
+[ext_resource type="PackedScene" uid="uid://cmg2tf6aqayj3" path="res://scenes/XR_Setup.tscn" id="2_wgao3"]
+[ext_resource type="Texture2D" uid="uid://dm0p6iytpqhnb" path="res://imported images/magical sky.exr" id="7_rsaci"]
+[ext_resource type="AudioStream" uid="uid://csl825u3daj3x" path="res://music/mysterious-magical-meditative-space-118549.wav" id="8_lkr10"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cu0pq"]
 
@@ -20,7 +14,7 @@ size = Vector2(10, 100)
 albedo_color = Color(0.326548, 0.547751, 0.266464, 1)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kby45"]
-panorama = ExtResource("7_ehgxg")
+panorama = ExtResource("7_rsaci")
 
 [sub_resource type="Sky" id="Sky_h0jir"]
 sky_material = SubResource("PanoramaSkyMaterial_kby45")
@@ -30,34 +24,9 @@ background_mode = 2
 sky = SubResource("Sky_h0jir")
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_tqvvg")
+script = ExtResource("1_cy27a")
 
-[node name="XROrigin3D" type="XROrigin3D" parent="."]
-
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-
-[node name="Left_hand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
-tracker = &"left_hand"
-
-[node name="LeftHand" parent="XROrigin3D/Left_hand" instance=ExtResource("2_twmtr")]
-
-[node name="MovementDirect" parent="XROrigin3D/Left_hand" instance=ExtResource("3_ojacg")]
-
-[node name="Right_hand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-tracker = &"right_hand"
-
-[node name="RightHand" parent="XROrigin3D/Right_hand" instance=ExtResource("3_4m8hr")]
-
-[node name="MovementTurn" parent="XROrigin3D/Right_hand" instance=ExtResource("4_2y6jw")]
-
-[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("4_op00d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11542, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/PlayerBody"]
-shape = SubResource("CapsuleShape3D_dqirk")
+[node name="XROrigin3D2" parent="." instance=ExtResource("2_wgao3")]
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -73,5 +42,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vl2u2")
 environment = SubResource("Environment_ixqrb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_qyeuv")
+stream = ExtResource("8_lkr10")
 autoplay = true

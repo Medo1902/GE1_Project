@@ -1,15 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://1t3ox1xanoms"]
+[gd_scene load_steps=13 format=3 uid="uid://1t3ox1xanoms"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cy27a"]
 [ext_resource type="PackedScene" uid="uid://cmg2tf6aqayj3" path="res://scenes/XR_Setup.tscn" id="2_wgao3"]
-[ext_resource type="PackedScene" uid="uid://cq5gl7nyig0qo" path="res://scenes/magic_wand.tscn" id="5_b5uub"]
 [ext_resource type="Texture2D" uid="uid://dm0p6iytpqhnb" path="res://imported images/magical sky.exr" id="7_rsaci"]
 [ext_resource type="AudioStream" uid="uid://csl825u3daj3x" path="res://music/mysterious-magical-meditative-space-118549.wav" id="8_lkr10"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cu0pq"]
+size = Vector3(100, 1, 100)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_k7bt6"]
-size = Vector2(10, 100)
+size = Vector2(100, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vl2u2"]
 albedo_color = Color(0.326548, 0.547751, 0.266464, 1)
@@ -36,10 +36,11 @@ script = ExtResource("1_cy27a")
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_cu0pq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+visible = false
 mesh = SubResource("PlaneMesh_k7bt6")
 surface_material_override/0 = SubResource("StandardMaterial3D_vl2u2")
 
@@ -60,6 +61,3 @@ mesh = SubResource("BoxMesh_2b4a4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83099, -1.48092)
 shape = SubResource("BoxShape3D_v5n5d")
-
-[node name="PickableObject" parent="StaticBody3D" instance=ExtResource("5_b5uub")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208103, 1.4071, -1.15023)

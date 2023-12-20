@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmg2tf6aqayj3"]
+
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_y7bxy"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="2_7nsna"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_a4cjf"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_8l7ey"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="5_751v4"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_a5bib"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bu0cf"]
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Left_hand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="Left_hand" instance=ExtResource("1_y7bxy")]
+
+[node name="MovementDirect" parent="Left_hand" instance=ExtResource("2_7nsna")]
+
+[node name="FunctionPickup" parent="Left_hand" instance=ExtResource("3_a4cjf")]
+
+[node name="Right_hand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+
+[node name="RightHand" parent="Right_hand" instance=ExtResource("4_8l7ey")]
+
+[node name="MovementTurn" parent="Right_hand" instance=ExtResource("5_751v4")]
+
+[node name="FunctionPickup" parent="Right_hand" instance=ExtResource("3_a4cjf")]
+
+[node name="PlayerBody" parent="." instance=ExtResource("6_a5bib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11542, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBody"]
+shape = SubResource("CapsuleShape3D_bu0cf")

@@ -8,7 +8,7 @@ Class Group: -
 
 Video:h
 
-[![YouTube](https://www.youtube.com/watch?v=Fm3avJJ9pGk/0.jpg)](https://www.youtube.com/watch?v=Fm3avJJ9pGk)
+[![Project youtube video](https://www.youtube.com/watch?v=Fm3avJJ9pGk)
 
 # Description of the project
 
@@ -25,21 +25,32 @@ User can grab objects using grip button on both of the controllers.
 
 # How it works
 
+This app implements simple models that can be grabbed and have some effect on them.
+
 # List of classes/assets in the project
 
 | Class/asset | Source |
 |-----------|-----------|
-| MyClass.cs | Self written |
-| MyClass1.cs | Modified from [reference]() |
-| MyClass2.cs | From [reference]() |
+| Main.tscn | Self written |
+| red_ball.tscn | Modified from [reference](https://www.youtube.com/watch?v=u66RwHdpeuQ&t=1s) |
+| magic_wand.tscn | From [reference](https://www.youtube.com/watch?v=u66RwHdpeuQ&t=1s) |
+| magic_hat.tscn | Modified from [reference](https://www.youtube.com/watch?v=u66RwHdpeuQ&t=1s) |
+| XR_setup.tscn | From [reference](https://www.youtube.com/watch?v=rLOt0Pkzl9s) |
+| red_ball.tscn | Modified from [reference](https://www.youtube.com/watch?v=u66RwHdpeuQ&t=1s) |
+| magic_wand.tscn | From [reference](https://www.youtube.com/watch?v=u66RwHdpeuQ&t=1s) |
 
 # References
-* Item 1
+* 
 * Item 2
 
 # What I am most proud of in the assignment
 
+I am most proud of the created environment and vibe in the app, it feels very immersive with the included music and magical environment.
+Also keeping up with the work and doing all of this from scratch with no previous knowledge of godot and VR.
+
 # What I learned
+
+I learned many things while doing this project, mostly I learned how to interact with objects in godot XR, how to add particles and sounds to an app.
 
 # Proposal submitted earlier:
 
@@ -54,72 +65,4 @@ some examples:
 - balls disappearing, or one ball becomes 2 balls etc.
 
 The plan is if not too complex to implement tutorials for some magic tricks where user could follow tutorials and learn the tricks.
-
-## This is how to markdown text:
-
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-This is an image using a relative URL:
-
-![An image](images/p8.png)
-
-This is an image using an absolute URL:
-
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
-This is a youtube video:
-
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
-
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
 

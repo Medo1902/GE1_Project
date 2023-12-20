@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkov2ubtn0awf"]
+
+[ext_resource type="PackedScene" uid="uid://ie3ptnr5y3nk" path="res://Table_02.fbx" id="1_jmv5l"]
+[ext_resource type="Texture2D" uid="uid://c2bduibc145ff" path="res://particles/PNG (Transparent)/muzzle_01.png" id="2_rby71"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5lh27"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_rby71")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_sjdtv"]
+offsets = PackedFloat32Array(0, 0.471545, 1)
+colors = PackedColorArray(0.878816, 0.563788, 0.337926, 1, 0.456195, 0.506722, 0.0204053, 1, 0.287062, 0.441659, 0.374514, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5s3iu"]
+gradient = SubResource("Gradient_sjdtv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xkg60"]
+emission_shape = 1
+emission_sphere_radius = 0.05
+gravity = Vector3(0, 0, 0)
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+angle_min = 180.0
+angle_max = 180.0
+scale_max = 3.0
+color = Color(0.639216, 0.552941, 0.0313726, 1)
+color_ramp = SubResource("GradientTexture1D_5s3iu")
+
+[sub_resource type="QuadMesh" id="QuadMesh_kb4wk"]
+
+[node name="Table_02" instance=ExtResource("1_jmv5l")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.144087, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0013, -0.622019, 0.536216)
+material_override = SubResource("StandardMaterial3D_5lh27")
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_xkg60")
+draw_pass_1 = SubResource("QuadMesh_kb4wk")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.995759, -0.622019, 0.536216)
+material_override = SubResource("StandardMaterial3D_5lh27")
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_xkg60")
+draw_pass_1 = SubResource("QuadMesh_kb4wk")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.995759, -0.622019, -0.562599)
+material_override = SubResource("StandardMaterial3D_5lh27")
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_xkg60")
+draw_pass_1 = SubResource("QuadMesh_kb4wk")
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.968102, -0.622019, -0.562599)
+material_override = SubResource("StandardMaterial3D_5lh27")
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_xkg60")
+draw_pass_1 = SubResource("QuadMesh_kb4wk")

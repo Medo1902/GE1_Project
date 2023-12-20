@@ -1,7 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://1t3ox1xanoms"]
+[gd_scene load_steps=15 format=3 uid="uid://1t3ox1xanoms"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cy27a"]
 [ext_resource type="PackedScene" uid="uid://cmg2tf6aqayj3" path="res://scenes/XR_Setup.tscn" id="2_wgao3"]
+[ext_resource type="Script" path="res://scenes/Floor.gd" id="3_do6q7"]
+[ext_resource type="PackedScene" uid="uid://ie3ptnr5y3nk" path="res://Table_02.fbx" id="5_8ixxw"]
+[ext_resource type="PackedScene" uid="uid://cdpu2i3powa2q" path="res://scenes/magic_wand.tscn" id="5_b5uub"]
 [ext_resource type="Texture2D" uid="uid://dm0p6iytpqhnb" path="res://imported images/magical sky.exr" id="7_rsaci"]
 [ext_resource type="AudioStream" uid="uid://csl825u3daj3x" path="res://music/mysterious-magical-meditative-space-118549.wav" id="8_lkr10"]
 
@@ -24,9 +27,8 @@ sky_material = SubResource("PanoramaSkyMaterial_kby45")
 background_mode = 2
 sky = SubResource("Sky_h0jir")
 
-[sub_resource type="BoxMesh" id="BoxMesh_2b4a4"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_v5n5d"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ipkkg"]
+size = Vector3(3.3936, 1.42794, 1.83138)
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_cy27a")
@@ -34,13 +36,13 @@ script = ExtResource("1_cy27a")
 [node name="XROrigin3D2" parent="." instance=ExtResource("2_wgao3")]
 
 [node name="Floor" type="StaticBody3D" parent="."]
+script = ExtResource("3_do6q7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_cu0pq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-visible = false
 mesh = SubResource("PlaneMesh_k7bt6")
 surface_material_override/0 = SubResource("StandardMaterial3D_vl2u2")
 
@@ -51,13 +53,15 @@ environment = SubResource("Environment_ixqrb")
 stream = ExtResource("8_lkr10")
 autoplay = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.746843, 0)
+[node name="PickableObject" parent="." instance=ExtResource("5_b5uub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204968, 1.93088, -2.02328)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83099, -1.48092)
-mesh = SubResource("BoxMesh_2b4a4")
+[node name="table" type="StaticBody3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.459357, -0.409844, 0.817663)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83099, -1.48092)
-shape = SubResource("BoxShape3D_v5n5d")
+[node name="Table_03" parent="table" instance=ExtResource("5_8ixxw")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.438053, 1.30875, -2.9716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.447412, 1.21679, -2.96131)
+shape = SubResource("BoxShape3D_ipkkg")

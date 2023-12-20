@@ -8,7 +8,6 @@
 [ext_resource type="Animation" uid="uid://dg4v7rqiaje2h" path="res://addons/godot-xr-tools/hands/animations/right/Pinch Flat.res" id="6_hgyhb"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="7_1hkx7"]
 [ext_resource type="Texture2D" uid="uid://era6md7oub3q" path="res://particles/PNG (Transparent)/magic_05.png" id="8_gkpc4"]
-[ext_resource type="Script" path="res://scenes/GPUParticles3D.gd" id="9_tujrc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_guyqt"]
 size = Vector3(0.02, 0.02, 0.23)
@@ -78,6 +77,22 @@ color_ramp = SubResource("GradientTexture1D_flwe0")
 
 [sub_resource type="QuadMesh" id="QuadMesh_s84s8"]
 
+[sub_resource type="GDScript" id="GDScript_78beq"]
+script/source = "extends GPUParticles3D
+
+@onready var wand = $\"..\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [node name="PickableObject" instance=ExtResource("1_2lp73")]
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -115,4 +130,4 @@ emitting = false
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_kx1nt")
 draw_pass_1 = SubResource("QuadMesh_s84s8")
-script = ExtResource("9_tujrc")
+script = SubResource("GDScript_78beq")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://boj6glq7ov7dj"]
+
+[ext_resource type="PackedScene" uid="uid://c15q2uj0tsgay" path="res://external_models/Table_01.glb" id="1_kxivt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vv70r"]
+
+[node name="table" type="Node3D"]
+
+[node name="Table" type="RigidBody3D" parent="."]
+
+[node name="Table_01" parent="Table" instance=ExtResource("1_kxivt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table"]
+transform = Transform3D(3.05319, 0, 0, 0, 1.17, 0, 0, 0, 1.59305, 0, 0, 0)
+shape = SubResource("BoxShape3D_vv70r")

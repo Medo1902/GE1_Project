@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxmt8d1uwp6xm"]
+
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_15hn2"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="2_0udqr"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="2_p4py2"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_gpte7"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_73lsa"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_26380"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="6_i3ok1"]
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+
+[node name="LeftHand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.148823, 0, 0)
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="LeftHand" instance=ExtResource("1_15hn2")]
+
+[node name="MovementDirect" parent="LeftHand" instance=ExtResource("2_p4py2")]
+
+[node name="FunctionPickup" parent="LeftHand" instance=ExtResource("3_gpte7")]
+
+[node name="RightHand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100562, 0, 0)
+tracker = &"right_hand"
+
+[node name="RightHand" parent="RightHand" instance=ExtResource("2_0udqr")]
+
+[node name="MovementTurn" parent="RightHand" instance=ExtResource("4_73lsa")]
+
+[node name="FunctionPickup" parent="RightHand" instance=ExtResource("3_gpte7")]
+
+[node name="PlayerBody" type="CharacterBody3D" parent="." groups=["player_body"] instance=ExtResource("5_26380")]
+process_priority = -100
+process_physics_priority = -100
+top_level = true
+collision_layer = 524288
+collision_mask = 1023
+script = ExtResource("6_i3ok1")

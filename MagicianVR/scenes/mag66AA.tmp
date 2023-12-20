@@ -79,7 +79,6 @@ color_ramp = SubResource("GradientTexture1D_flwe0")
 [sub_resource type="QuadMesh" id="QuadMesh_s84s8"]
 
 [node name="wand" instance=ExtResource("1_2lp73")]
-continuous_cd = true
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0149489)

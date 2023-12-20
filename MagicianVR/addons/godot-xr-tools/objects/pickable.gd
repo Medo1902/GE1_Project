@@ -2,7 +2,7 @@
 class_name XRToolsPickable
 extends RigidBody3D
 
-@onready var particle = $GPUParticles3D
+@onready var particles = $GPUParticles3D
 
 
 ## XR Tools Pickable Object
@@ -221,7 +221,8 @@ func drop_and_free():
 # Called when this object is picked up
 func pick_up(by: Node3D) -> void:
 	
-	particle.emitting = true
+	if is_instance_valid(particles):
+		particles.emitting = true
 	# Skip if not enabled
 	if not enabled:
 		return
@@ -294,7 +295,8 @@ func pick_up(by: Node3D) -> void:
 # Called when this object is dropped
 func let_go(by: Node3D, p_linear_velocity: Vector3, p_angular_velocity: Vector3) -> void:
 	
-	particle.emitting = false
+	if is_instance_valid(particles): 
+		particles.emitting = false
 	# Skip if not picked up
 	if not is_picked_up():
 		return

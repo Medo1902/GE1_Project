@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhjnqitfmd51f"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_nqdvx"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u6g8r"]
+size = Vector2(0.4, 0.4)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prtxx"]
+albedo_color = Color(1, 0.0470588, 1, 1)
+
+[node name="PickableObject" instance=ExtResource("1_nqdvx")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.539414, 0)
+
+[node name="SoftBody3D" type="SoftBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.541754, 0)
+mesh = SubResource("PlaneMesh_u6g8r")
+surface_material_override/0 = SubResource("StandardMaterial3D_prtxx")

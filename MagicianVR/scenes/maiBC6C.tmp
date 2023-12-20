@@ -62,10 +62,8 @@ mesh = SubResource("BoxMesh_2b4a4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83099, -1.48092)
 shape = SubResource("BoxShape3D_v5n5d")
 
-[node name="red_ball" parent="." instance=ExtResource("6_17dh4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215629, 2.18753, -1.17488)
-contact_monitor = true
+[node name="wand" parent="StaticBody3D" instance=ExtResource("5_b5uub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208103, 1.4071, -1.15023)
 
-[node name="wand" parent="." instance=ExtResource("5_b5uub")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284859, 2.17918, -1.15023)
-contact_monitor = true
+[node name="red_ball1" parent="." instance=ExtResource("6_17dh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0358502, 2.13107, -1.17488)

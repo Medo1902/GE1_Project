@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://caoj6x4daymf7"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="1_0ywc4"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="2_vdic3"]
+[ext_resource type="PackedScene" uid="uid://bt5l3hf3axr4h" path="res://scenes/red_ball.tscn" id="3_f4x15"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rpiok"]
+radius = 0.3
+
+[node name="red_ball_snapzone" type="Area3D"]
+script = ExtResource("1_0ywc4")
+snap_mode = 1
+snap_require = "red_ball"
+
+[node name="HighlightRing" parent="." instance=ExtResource("2_vdic3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_rpiok")
+
+[node name="red_ball" parent="." instance=ExtResource("3_f4x15")]
+transform = Transform3D(0.01, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

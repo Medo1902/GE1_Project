@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://crg8m6o2emgrj"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_3o5tn"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="2_e03t6"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vhjjk"]
+height = 0.25
+radius = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_amqsm"]
+radius = 0.2
+height = 0.02
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kn5uo"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bv6ux"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joueb"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0ug2"]
+size = Vector3(0.4, 0.02, 0.4)
+
+[sub_resource type="SphereMesh" id="SphereMesh_frgbn"]
+flip_faces = true
+radius = 0.21
+height = 0.024
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfya4"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="PickableObject" instance=ExtResource("1_3o5tn")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.132347, 0)
+shape = SubResource("CylinderShape3D_vhjjk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("SphereMesh_amqsm")
+surface_material_override/0 = SubResource("StandardMaterial3D_kn5uo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.132358, 0)
+mesh = SubResource("CylinderMesh_bv6ux")
+surface_material_override/0 = SubResource("StandardMaterial3D_joueb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="3"]
+shape = SubResource("BoxShape3D_h0ug2")
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="4"]
+script = ExtResource("2_e03t6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]
+mesh = SubResource("SphereMesh_frgbn")
+surface_material_override/0 = SubResource("StandardMaterial3D_qfya4")

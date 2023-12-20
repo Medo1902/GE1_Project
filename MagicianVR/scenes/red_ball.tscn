@@ -2,35 +2,35 @@
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_pjrs5"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_nsywn"]
-[ext_resource type="Animation" uid="uid://dhjb0e334tfwl" path="res://addons/godot-xr-tools/hands/animations/left/Pinch Flat.res" id="3_8elc1"]
+[ext_resource type="Animation" uid="uid://cnng6xumhw7cx" path="res://addons/godot-xr-tools/hands/animations/left/Rounded.res" id="3_8bxjh"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="4_po8lp"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="5_fbjjx"]
+[ext_resource type="Animation" uid="uid://wcwa3p1qrhwr" path="res://addons/godot-xr-tools/hands/animations/right/Rounded.res" id="6_mpub2"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_qd1nn"]
-[ext_resource type="Animation" uid="uid://dg4v7rqiaje2h" path="res://addons/godot-xr-tools/hands/animations/right/Pinch Flat.res" id="7_xglxa"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rmrhc"]
 margin = 0.01
-radius = 0.02
+radius = 0.06
 
 [sub_resource type="SphereMesh" id="SphereMesh_7ordy"]
-radius = 0.02
-height = 0.04
+radius = 0.06
+height = 0.12
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hybce"]
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_8m03t"]
 script = ExtResource("4_po8lp")
-closed_pose = ExtResource("3_8elc1")
+closed_pose = ExtResource("3_8bxjh")
 
 [sub_resource type="Resource" id="Resource_ab664"]
 script = ExtResource("4_po8lp")
-closed_pose = ExtResource("7_xglxa")
+closed_pose = ExtResource("6_mpub2")
 
 [sub_resource type="SphereMesh" id="SphereMesh_possg"]
 flip_faces = true
-radius = 0.022
-height = 0.044
+radius = 0.065
+height = 0.13
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qu73v"]
 shading_mode = 0
@@ -47,16 +47,16 @@ mesh = SubResource("SphereMesh_7ordy")
 surface_material_override/0 = SubResource("StandardMaterial3D_hybce")
 
 [node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("2_nsywn")]
-transform = Transform3D(1, 0, 0, 0, 0.962341, -0.271844, 0, 0.271844, 0.962341, -0.0178013, 0.0338259, -0.0529308)
+transform = Transform3D(1, 0, 0, 0, 0.962341, -0.271844, 0, 0.271844, 0.962341, -0.0269494, 0.061561, -0.0529308)
 hand_pose = SubResource("Resource_8m03t")
 
 [node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("6_qd1nn")]
-transform = Transform3D(1, 0, 0, 0, 0.972828, -0.231527, 0, 0.231527, 0.972828, 0.00993555, 0.0345587, -0.0567373)
+transform = Transform3D(1, 0, 0, 0, 0.972828, -0.231527, 0, 0.231527, 0.972828, 0.025972, 0.0578074, -0.0567373)
 hand_pose = SubResource("Resource_ab664")
 
 [node name="XRToolsHighlightVisible" type="Node3D" parent="." index="4"]
 script = ExtResource("5_fbjjx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0" groups=["red_ball"]]
 mesh = SubResource("SphereMesh_possg")
 surface_material_override/0 = SubResource("StandardMaterial3D_qu73v")

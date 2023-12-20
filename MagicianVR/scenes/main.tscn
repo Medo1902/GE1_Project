@@ -1,12 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://1t3ox1xanoms"]
+[gd_scene load_steps=18 format=3 uid="uid://1t3ox1xanoms"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cy27a"]
 [ext_resource type="PackedScene" uid="uid://cmg2tf6aqayj3" path="res://scenes/XR_Setup.tscn" id="2_wgao3"]
-[ext_resource type="Script" path="res://scenes/Floor.gd" id="3_do6q7"]
 [ext_resource type="PackedScene" uid="uid://ie3ptnr5y3nk" path="res://Table_02.fbx" id="5_8ixxw"]
 [ext_resource type="PackedScene" uid="uid://cdpu2i3powa2q" path="res://scenes/magic_wand.tscn" id="5_b5uub"]
+[ext_resource type="PackedScene" uid="uid://bt5l3hf3axr4h" path="res://scenes/red_ball.tscn" id="6_17dh4"]
 [ext_resource type="Texture2D" uid="uid://dm0p6iytpqhnb" path="res://imported images/magical sky.exr" id="7_rsaci"]
 [ext_resource type="AudioStream" uid="uid://csl825u3daj3x" path="res://music/mysterious-magical-meditative-space-118549.wav" id="8_lkr10"]
+[ext_resource type="PackedScene" uid="uid://crg8m6o2emgrj" path="res://scenes/magic hat.tscn" id="8_sd2v6"]
+[ext_resource type="PackedScene" uid="uid://caoj6x4daymf7" path="res://scenes/ball_snapzone.tscn" id="9_sj6cc"]
+[ext_resource type="PackedScene" uid="uid://cjs0tk826yddj" path="res://scenes/table_particles.tscn" id="10_k0xmt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cu0pq"]
 size = Vector3(100, 1, 100)
@@ -15,7 +18,7 @@ size = Vector3(100, 1, 100)
 size = Vector2(100, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vl2u2"]
-albedo_color = Color(0.326548, 0.547751, 0.266464, 1)
+albedo_color = Color(0.956863, 0, 0.0235294, 1)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kby45"]
 panorama = ExtResource("7_rsaci")
@@ -36,7 +39,6 @@ script = ExtResource("1_cy27a")
 [node name="XROrigin3D2" parent="." instance=ExtResource("2_wgao3")]
 
 [node name="Floor" type="StaticBody3D" parent="."]
-script = ExtResource("3_do6q7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -57,7 +59,7 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204968, 1.93088, -2.02328)
 
 [node name="table" type="StaticBody3D" parent="."]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.459357, -0.409844, 0.817663)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.459357, -0.514527, 0.817663)
 
 [node name="Table_03" parent="table" instance=ExtResource("5_8ixxw")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.438053, 1.30875, -2.9716)
@@ -65,3 +67,22 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.438053, 1.30875, -2.9
 [node name="CollisionShape3D" type="CollisionShape3D" parent="table"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.447412, 1.21679, -2.96131)
 shape = SubResource("BoxShape3D_ipkkg")
+
+[node name="red_ball" parent="table" instance=ExtResource("6_17dh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.939505, 2.03683, -2.28476)
+contact_monitor = true
+ranged_grab_method = 2
+second_hand_grab = 1
+
+[node name="red_ball2" parent="table" instance=ExtResource("6_17dh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19107, 2.03683, -2.28476)
+contact_monitor = true
+
+[node name="PickableObject" parent="table" instance=ExtResource("8_sd2v6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.5)
+
+[node name="red_ball_snapzone" parent="table" instance=ExtResource("9_sj6cc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.793674, 2.02293, -2.20965)
+
+[node name="RigidBody3D" parent="." instance=ExtResource("10_k0xmt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.414646, 2.05605)

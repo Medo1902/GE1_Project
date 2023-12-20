@@ -36,6 +36,7 @@ tracker = &"right_hand"
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_a5bib")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11542, 0)
+disable_mode = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBody"]
 shape = SubResource("CapsuleShape3D_bu0cf")

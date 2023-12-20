@@ -6,7 +6,7 @@ Student Number: C20338661
 
 Class Group: -
 
-Video:h
+Video:
 
 [![Project youtube video](https://www.youtube.com/watch?v=Fm3avJJ9pGk)
 
@@ -40,17 +40,22 @@ This app implements simple models that can be grabbed and have some effect on th
 | magic_wand.tscn | From [reference](https://www.youtube.com/watch?v=u66RwHdpeuQ&t=1s) |
 
 # References
-* 
-* Item 2
+* [Godot collision shapes doc](https://docs.godotengine.org/en/stable/tutorials/physics/collision_shapes_3d.html)
+* [Setup VR youtube tutorial](https://www.youtube.com/watch?v=rLOt0Pkzl9s&t=251s)
+* [Godot particles tutorial](https://youtu.be/6uhHveei2Sg?si=N-aymNZlXsWEOXak)
+* [adding music to VR game](https://youtu.be/em3RqW_0OrQ?si=_YUmTwKKquedYHZ0)
 
 # What I am most proud of in the assignment
 
 I am most proud of the created environment and vibe in the app, it feels very immersive with the included music and magical environment.
 Also keeping up with the work and doing all of this from scratch with no previous knowledge of godot and VR.
 
+Another thing I am proud of is managing the work with different branches and merging them all into master at the end. This helped to keep all the work separated and focus on each part of the app separately.
+
 # What I learned
 
 I learned many things while doing this project, mostly I learned how to interact with objects in godot XR, how to add particles and sounds to an app.
+After following many tutorials online and many classes in games engines lectures, I feel like I could continue on this journey of creating VR games, as it is really fun and entertaining to create whatever comes to your mind.
 
 # Proposal submitted earlier:
 
